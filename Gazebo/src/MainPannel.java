@@ -109,8 +109,8 @@ public class MainPannel {
 		
 		//========================================================= Visuals Panel Visuals ===========================================================================
 		//Label for graphics
-		JLabel visualTitle = new JLabel("Welcome to the final step!\n", SwingConstants.CENTER);
-		visualTitle.setBounds(350, 10, 1000, 25);
+		JLabel visualTitle = new JLabel("Welcome to the Final Step!\n", SwingConstants.CENTER);
+		visualTitle.setBounds(0, 10, 1000, 25);
 		visuals.add(visualTitle);
 				
 		//Label for userNotice
