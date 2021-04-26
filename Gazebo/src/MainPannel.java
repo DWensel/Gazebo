@@ -1,6 +1,7 @@
 //Required Imports
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import javax.swing.*;
@@ -41,7 +42,7 @@ public class MainPannel {
 		
 		//User Notice Label for Step 1
 		JLabel preNotice = new JLabel("No File Selected");
-		preNotice.setBounds(300, 40, 500, 100);
+		preNotice.setBounds(300, 55, 500, 200);
 		inputData.add(preNotice);
 		
 		//Button for Preprocessing, and actionListener to perform a ProcessBuilder and Process of our python script1
@@ -53,7 +54,10 @@ public class MainPannel {
 					ProcessBuilder pb = new ProcessBuilder("python","script1.py");
 					@SuppressWarnings("unused")
 					Process p = pb.start();
-					preNotice.setText("<html>In the Preprocessing Phase, we are removing null values and setting all values between 0 and 1.<br>This is important for the Processing Phase</html>");
+					preNotice.setText("<html>This is the <u>Preprocessing Stage</u>. In this stage our code looks through each row in the data and cuts it down in various ways.\r\n"
+							+ "Rows will be kept only if they fall between the time range that you specify. Rows with null values will also be removed because they cannot be used for analysis.\r\n"
+							+ "Null values can be considered anomalies, so they will be stored in <i>nullValues.csv</i> for your viewing convenience.\r\n"
+							+ "Then each record will be converted to values between 0 and 1 which makes it easier for our algorithm to detect anomalies.</html>");
 				} catch (IOException e1) {
 					//e1.printStackTrace();
 					preNotice.setText("Something went wrong! :( Please retry.");
@@ -64,27 +68,39 @@ public class MainPannel {
 		
 		//Label for Data Step 2
 		JLabel dataStep2 = new JLabel("Step 2: Now we need to Process the file, Just click the button to continue!");
-		dataStep2.setBounds(150, 320, 1000, 25);
+		dataStep2.setBounds(150, 300, 1000, 25);
 		inputData.add(dataStep2);
 		
 		//User Notice Label for Step 2
 		JLabel processNotice = new JLabel("Here I AM");
-		processNotice.setBounds(300, 335, 500, 100);
+		processNotice.setBounds(300, 305, 500, 200);
 		inputData.add(processNotice);
 		
 		//Button for Processing, and actionListener to perform a ProcessBuilder and Process of our python script2
 		JButton confirmPreprocessing = new JButton("Process That File!");
-		confirmPreprocessing.setBounds(150, 345, 135, 20);
+		confirmPreprocessing.setBounds(150, 325, 135, 20);
 		confirmPreprocessing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					ProcessBuilder pb = new ProcessBuilder("python","script2.py");
-					@SuppressWarnings("unused")
-					Process p = pb.start();
-					processNotice.setText("This is what happenned to your file");
+					File tempFile = new File("normalizedData.csv");
+					boolean fileExists = tempFile.exists();
+					if (fileExists) {
+						ProcessBuilder pb = new ProcessBuilder("python","script2.py");
+						@SuppressWarnings("unused")
+						Process p = pb.start();
+						processNotice.setText("<html>This is the <u>Processing Stage</u>. In this stage we use a method known as <em>Principle Component Analysis</em> to determine which groups of columns are the best for processing,\r\n"
+							+ "and then only select those columns. Afterwards, we put the remaining data through an unsupervised machine learning algorithm, known as <em>CBLOF<em>, to determine outliers.\r\n"
+							+ "Detected outliers are then matched to the original data that they go with, and this data is exported to Anomalies.csv for your viewing convenience.\r\n"
+							+ "Several other CSVs are also created to facilitate chart creation which can be observed on the next tab.</html>\n\n\nPlease Move on to the Graphics Panel!");
+					}
+					else
+					{
+						processNotice.setText("File Not Found. Make Sure To Do Step 1 First!");
+					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				
 			}
 		});
 		inputData.add(confirmPreprocessing);
