@@ -1,4 +1,4 @@
-
+//Required Imports
 import org.jfree.chart.ChartPanel;
 import java.io.File;
 import java.io.FileNotFoundException;

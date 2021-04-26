@@ -66,7 +66,7 @@ public class MainPannel {
 		
 		//Button for Processing, and actionListener to perform a ProcessBuilder and Process of our python script2
 		JButton confirmPreprocessing = new JButton("Process That File!");
-		confirmPreprocessing.setBounds(400, 100, 105, 20);
+		confirmPreprocessing.setBounds(350, 100, 150, 20);
 		confirmPreprocessing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
