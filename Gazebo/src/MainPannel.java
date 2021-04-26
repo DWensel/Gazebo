@@ -22,12 +22,12 @@ public class MainPannel {
 		//Panels to be added to the TabbedPane
 		JPanel dashboard =new JPanel();
 		JPanel inputData = new JPanel();
-		JPanel graphics = new JPanel();
+		JPanel visuals = new JPanel();
 		
 		//Panel information
 		dashboard.setLayout(null);
 		inputData.setLayout(null);
-		graphics.setLayout(null);
+		visuals.setLayout(null);
 		
 		//Label for Dashboard
 		JLabel welcome = new JLabel("Welcome, to Gazebo Incorporate Log Anyalysis and Visualiztion!");
@@ -41,7 +41,7 @@ public class MainPannel {
 		inputData.add(dataStep1);
 		
 		//User Notice Label for Step 1
-		JLabel preNotice = new JLabel("No File Selected");
+		JLabel preNotice = new JLabel("");
 		preNotice.setBounds(300, 55, 500, 200);
 		inputData.add(preNotice);
 		
@@ -72,7 +72,7 @@ public class MainPannel {
 		inputData.add(dataStep2);
 		
 		//User Notice Label for Step 2
-		JLabel processNotice = new JLabel("Here I AM");
+		JLabel processNotice = new JLabel("");
 		processNotice.setBounds(300, 305, 500, 200);
 		inputData.add(processNotice);
 		
@@ -91,11 +91,11 @@ public class MainPannel {
 						processNotice.setText("<html>This is the <u>Processing Stage</u>. In this stage we use a method known as <em>Principle Component Analysis</em> to determine which groups of columns are the best for processing,\r\n"
 							+ "and then only select those columns. Afterwards, we put the remaining data through an unsupervised machine learning algorithm, known as <em>CBLOF<em>, to determine outliers.\r\n"
 							+ "Detected outliers are then matched to the original data that they go with, and this data is exported to Anomalies.csv for your viewing convenience.\r\n"
-							+ "Several other CSVs are also created to facilitate chart creation which can be observed on the next tab.</html>\n\n\nPlease Move on to the Graphics Panel!");
+							+ "Several other CSVs are also created to facilitate chart creation which can be observed on the next tab.</html>\n\n\nPlease Move on to the Visuals Panel!");
 					}
 					else
 					{
-						processNotice.setText("File Not Found. Make Sure To Do Step 1 First!");
+						processNotice.setText("File Not Found. Make Sure To Do Step 1 Found Above First!");
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
@@ -107,28 +107,28 @@ public class MainPannel {
 		
 		
 		
-		//========================================================= Graphics Panel Visuals ===========================================================================
+		//========================================================= Visuals Panel Visuals ===========================================================================
 		//Label for graphics
-		JLabel graphicTitle = new JLabel("Welcome to the final step!\n", SwingConstants.CENTER);
-		graphicTitle.setBounds(350, 10, 1000, 25);
-		graphics.add(graphicTitle);
+		JLabel visualTitle = new JLabel("Welcome to the final step!\n", SwingConstants.CENTER);
+		visualTitle.setBounds(350, 10, 1000, 25);
+		visuals.add(visualTitle);
 				
 		//Label for userNotice
 		JLabel userNotice = new JLabel("");
 		userNotice.setBounds(380,250, 500,20);
-		graphics.add(userNotice);
+		visuals.add(userNotice);
 				
 		//Combo Box for the options
 		String graphOption[] = {"Anomaly Pie Chart", "Busiest Times Bar Graph"};
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		JComboBox graphCB = new JComboBox(graphOption);
 		graphCB.setBounds(100,250,150,20);
-		graphics.add(graphCB);
+		visuals.add(graphCB);
 				
 		//Button to show graph option selected
 		JButton showButton = new JButton("Show!");
 		showButton.setBounds(275,250,70,20);
-		graphics.add(showButton);
+		visuals.add(showButton);
 				
 		//Action Listener for the button
 		showButton.addActionListener(new ActionListener() {
@@ -164,9 +164,9 @@ public class MainPannel {
 		tabbedPane.setBounds(0,0,frame.getWidth()-16,frame.getHeight()-39);
 		//make dashboard cute
 		tabbedPane.add("Dashboard",dashboard);
-		tabbedPane.add("Input Data & Preprocessing",inputData);
+		tabbedPane.add("Preprocessing & Processing",inputData);
 		//add a processing tab
-		tabbedPane.add("Graphics",graphics);
+		tabbedPane.add("Visuals",visuals);
 				
 		//Add the TabbedPane to the main frame, don't allow for resizing, make it visible
 		frame.add(tabbedPane);
