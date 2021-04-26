@@ -120,6 +120,10 @@ anomalyScore.to_csv('anomalies_cblof.csv', index = False, header=False)
 #knnAnomScore = pd.DataFrame(knnAnomScore)
 #knnAnomScore.to_csv('anomalies_knn.csv', index = False, header=False)
 
+#Gets the number of anomalies detected and exports that as a CSV to be used for graphing.
+finalAnomCounts = pd.DataFrame()
+finalAnomCounts = anomalyScore[0].value_counts()
+finalAnomCounts.to_csv('finalAnomCounts.csv', index = True, header= False)
 #===========================================================================================================================
 #Description: Finds indices of the anomalies in the original data file for user convenience. 
 
@@ -149,6 +153,24 @@ anomaliesDetectedFrame = copyLogData.iloc[originalIndices]
 #anomaliesDetectedFrame
 anomaliesDetectedFrame.to_csv('Anomalies.csv', index = False, header=False)
 
+#Uses a similar method to getting the most common times to seperate out the time column for each anomaly and count the # to be used for graphing.
+anomalyDatesList = []
+anomalyDatesFrame = anomaliesDetectedFrame[41]
+for i in anomalyDatesFrame.index:
+        dateString = anomalyDatesFrame.loc[i]
+        dateString = dateString[0:10]
+        anomalyDatesList.append(dateString)
+        
+newAnomalyDatesFrame = pd.DataFrame(np.array([anomalyDatesList]).T)
+newAnomalyDatesFrame.columns = [0]
+
+finalDateCounts = pd.DataFrame()
+finalDateCounts = newAnomalyDatesFrame[0].value_counts()
+
+finalDateCounts.to_csv('finalDateCounts.csv', index = True, header= False)
+
+
+#Menu Stuff
 user_update = tk.Tk()
 user_update.withdraw() 
 messagebox.showinfo("User Update", "Anomalies.csv has been created in your project directory.")

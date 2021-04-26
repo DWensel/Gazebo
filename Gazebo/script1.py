@@ -11,6 +11,7 @@
 #include dependencies
 import numpy as np
 import pandas as pd
+import re as re
 from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder
 import tkinter as tk
@@ -402,6 +403,3 @@ normLogData.to_csv('normalizedData.csv', index = False, header = False)
 m_box = tk.Tk()
 m_box.withdraw() 
 messagebox.showinfo("File Created", "normalizedData.csv has been created in your project directory")
-
-if __name__ == '__main__':
-    main()

@@ -26,7 +26,7 @@ public class AnomalyPieChart extends ApplicationFrame {
 		DefaultPieDataset dataset = new DefaultPieDataset();
       
 		//parsing a CSV file into Scanner class constructor  
-		Scanner sc = new Scanner(new File("anomalies_cblof.csv"));   
+		Scanner sc = new Scanner(new File("finalAnomCounts.csv"));   
 		while (sc.hasNext()){  //Continues until there are no records left
 			//Read in whole line as a string
 			String line = sc.nextLine();
