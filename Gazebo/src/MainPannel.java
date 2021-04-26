@@ -30,30 +30,33 @@ public class MainPannel {
 		
 		//Label for Dashboard
 		JLabel welcome = new JLabel("Welcome, to Gazebo Incorporate Log Anyalysis and Visualiztion!");
-		welcome.setBounds(450, 10, 900, 25);
+		welcome.setBounds(350, 10, 900, 25);
 		dashboard.add(welcome);
 		
-		//============================================= Data Panel Visuals ==========================================================
+		//============================================================ Data Panel Visuals ===========================================================================
 		//Label for Data Step 1
 		JLabel dataStep1 = new JLabel("Step 1:  First we need to select the log file we will be analyzing!");
-		dataStep1.setBounds(350,25,1000,25);
+		dataStep1.setBounds(150,25,1000,25);
 		inputData.add(dataStep1);
 		
-		//File Path Label
-		//JLabel pathLabel = new JLabel("No File Selected");
-		//pathLabel.setBounds(480, 49, 500, 25);
-		//data.add(pathLabel);
+		//User Notice Label for Step 1
+		JLabel preNotice = new JLabel("No File Selected");
+		preNotice.setBounds(300, 40, 500, 100);
+		inputData.add(preNotice);
 		
 		//Button for Preprocessing, and actionListener to perform a ProcessBuilder and Process of our python script1
 		JButton selectDataButton = new JButton("Select File");
-		selectDataButton.setBounds(350, 50, 105, 20);
+		selectDataButton.setBounds(150, 50, 105, 20);
 		selectDataButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					ProcessBuilder pb = new ProcessBuilder("python3","script1.py");
+					ProcessBuilder pb = new ProcessBuilder("python","script1.py");
+					@SuppressWarnings("unused")
 					Process p = pb.start();
+					preNotice.setText("<html>In the Preprocessing Phase, we are removing null values and setting all values between 0 and 1.<br>This is important for the Processing Phase</html>");
 				} catch (IOException e1) {
-					e1.printStackTrace();
+					//e1.printStackTrace();
+					preNotice.setText("Something went wrong! :( Please retry.");
 				}
 			}
 		});
@@ -61,17 +64,24 @@ public class MainPannel {
 		
 		//Label for Data Step 2
 		JLabel dataStep2 = new JLabel("Step 2: Now we need to Process the file, Just click the button to continue!");
-		dataStep2.setBounds(350, 85, 1000, 25);
+		dataStep2.setBounds(150, 320, 1000, 25);
 		inputData.add(dataStep2);
+		
+		//User Notice Label for Step 2
+		JLabel processNotice = new JLabel("Here I AM");
+		processNotice.setBounds(300, 335, 500, 100);
+		inputData.add(processNotice);
 		
 		//Button for Processing, and actionListener to perform a ProcessBuilder and Process of our python script2
 		JButton confirmPreprocessing = new JButton("Process That File!");
-		confirmPreprocessing.setBounds(350, 100, 150, 20);
+		confirmPreprocessing.setBounds(150, 345, 135, 20);
 		confirmPreprocessing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					ProcessBuilder pb = new ProcessBuilder("python","script2.py");
+					@SuppressWarnings("unused")
 					Process p = pb.start();
+					processNotice.setText("This is what happenned to your file");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -79,14 +89,11 @@ public class MainPannel {
 		});
 		inputData.add(confirmPreprocessing);
 		
-		//Label for Preprocessor information
-		JLabel preprocessInfo = new JLabel("");
-		preprocessInfo.setBounds(350, 130, 1000, 75);
-		inputData.add(preprocessInfo);
 		
-		//============================================= Graphics Panel Visuals ==============================================================
+		
+		//========================================================= Graphics Panel Visuals ===========================================================================
 		//Label for graphics
-		JLabel graphicTitle = new JLabel("Fancy Graphics Hopefully");
+		JLabel graphicTitle = new JLabel("Welcome to the final step!\n", SwingConstants.CENTER);
 		graphicTitle.setBounds(350, 10, 1000, 25);
 		graphics.add(graphicTitle);
 				
@@ -94,7 +101,6 @@ public class MainPannel {
 		JLabel userNotice = new JLabel("");
 		userNotice.setBounds(380,250, 500,20);
 		graphics.add(userNotice);
-				
 				
 		//Combo Box for the options
 		String graphOption[] = {"Anomaly Pie Chart", "Busiest Times Bar Graph"};
@@ -104,7 +110,7 @@ public class MainPannel {
 		graphics.add(graphCB);
 				
 		//Button to show graph option selected
-		JButton showButton = new JButton("Show");
+		JButton showButton = new JButton("Show!");
 		showButton.setBounds(275,250,70,20);
 		graphics.add(showButton);
 				
