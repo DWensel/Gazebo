@@ -1,4 +1,6 @@
 //Required Imports
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -28,6 +30,9 @@ public class MainPannel {
 		dashboard.setLayout(null);
 		inputData.setLayout(null);
 		visuals.setLayout(null);
+		
+		
+		
 		
 		//Label for Dashboard
 		JLabel welcome = new JLabel("Welcome, to Gazebo Incorporate Log Anyalysis and Visualiztion!");
@@ -167,7 +172,15 @@ public class MainPannel {
 		tabbedPane.add("Preprocessing & Processing",inputData);
 		//add a processing tab
 		tabbedPane.add("Visuals",visuals);
-				
+		
+		Image image= Toolkit.getDefaultToolkit().getImage("./gazeboPic.png");
+		ImageIcon icon = new ImageIcon(image);
+		JLabel thumb = new JLabel();
+		thumb.setIcon(icon);
+		thumb.setBounds(10,10,400,400);
+		thumb.setBorder(null);
+		dashboard.add(thumb);
+		
 		//Add the TabbedPane to the main frame, don't allow for resizing, make it visible
 		frame.add(tabbedPane);
 		frame.setResizable(false);
