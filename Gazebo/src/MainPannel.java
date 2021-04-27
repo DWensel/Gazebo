@@ -184,21 +184,21 @@ public class MainPannel {
 		
 
 		
-		Image image= Toolkit.getDefaultToolkit().getImage("./GAZEBO.jpg");
-		ImageIcon icon = new ImageIcon(image);
-		JLabel thumb = new JLabel();
-		thumb.setIcon(icon);
-		thumb.setBounds(0,-14,578,372); //
-		thumb.setBorder(null);
-		dashboard.add(thumb);
+		Image gazeboImage= Toolkit.getDefaultToolkit().getImage("./GAZEBO.jpg");
+		ImageIcon gazeboIcon = new ImageIcon(gazeboImage);
+		JLabel gazeboLabel = new JLabel();
+		gazeboLabel.setIcon(gazeboIcon);
+		gazeboLabel.setBounds(0,-14,578,372); //
+		gazeboLabel.setBorder(null);
+		dashboard.add(gazeboLabel);
 		
-		Image image2= Toolkit.getDefaultToolkit().getImage("./gazeboTITLE.png");
-		ImageIcon icon2 = new ImageIcon(image2);
-		JLabel thumb2 = new JLabel();
-		thumb2.setIcon(icon2);
-		thumb2.setBounds(0,358,578,200); //
-		thumb2.setBorder(null);
-		dashboard.add(thumb2);
+		Image gazeboTitle= Toolkit.getDefaultToolkit().getImage("./gazeboTITLE.png");
+		ImageIcon titleIcon = new ImageIcon(gazeboTitle);
+		JLabel titleLabel = new JLabel();
+		titleLabel.setIcon(titleIcon);
+		titleLabel.setBounds(0,358,578,200); //
+		titleLabel.setBorder(null);
+		dashboard.add(titleLabel);
 		
 		
 		
