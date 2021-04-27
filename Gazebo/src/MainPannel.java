@@ -41,7 +41,7 @@ public class MainPannel {
 		JLabel welcome = new JLabel("Welcome", SwingConstants.CENTER);
 		JLabel welcome2 = new JLabel("to Gazebo Incorporate Log Anyalysis and Visualiztion!", SwingConstants.CENTER);
 		JLabel dashboardInfo = new JLabel("");
-		String ourProject = "Security is integral to business success, no matter how large or small your business may be.  Here at Gazebo, Inc., it remains our number one priority to provide security for all.  Our Log Analysis and Visualization System Prototype showcases";
+		String ourProject = "Security is integral to business success, no matter how large or small your business may be.  Here at Gazebo, Inc., it remains our number one priority to provide security for all.  Our Log Analysis and Visualization System Prototype showcases anomaly detection on network log data of various sizes and structures. This can be used to make informed decisions about the the security of one's network.";
 		JLabel lineBreak = new JLabel("_______________________________________________________________________________________________________");
 		JLabel flowStart = new JLabel("<html>Please click on the <em>Preprocessing & Processing</em> tab at the top to begin!</html>");
 		
@@ -54,7 +54,7 @@ public class MainPannel {
 		
 		welcome.setBounds(574, 10, 422, 36);
 		welcome2.setBounds(574,50,422,18);
-		dashboardInfo.setBounds(590,100,380,200);
+		dashboardInfo.setBounds(590,130,380,200);
 		lineBreak.setBounds(578,60,422,15);
 		flowStart.setBounds(590,450,380,40);
 		dashboard.add(welcome);
