@@ -1,5 +1,6 @@
 //Required Imports
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -36,9 +37,16 @@ public class MainPannel {
 		
 		
 		//Label for Dashboard
-		JLabel welcome = new JLabel("<html>WELCOME<br>to Gazebo Incorporate Log Anyalysis and Visualiztion!</html>", SwingConstants.CENTER);
-		welcome.setBounds(578, 10, 422, 100);
+		JLabel welcome = new JLabel("Welcome", SwingConstants.CENTER);
+		JLabel welcome2 = new JLabel("to Gazebo Incorporate Log Anyalysis and Visualiztion!", SwingConstants.CENTER);
+		welcome.setFont(new Font("Serif", Font.BOLD, 36));
+		welcome2.setFont(new Font("Serif", Font.PLAIN, 16));
+		welcome.setBounds(574, 10, 422, 36);
+		welcome2.setBounds(574,50,422,18);
 		dashboard.add(welcome);
+		dashboard.add(welcome2);
+		
+		
 		
 		//============================================================ Data Panel Visuals ===========================================================================
 		//Label for Data Step 1
