@@ -28,25 +28,40 @@ public class MainPannel {
 		JPanel inputData = new JPanel();
 		JPanel visuals = new JPanel();
 		
-		//Panel information
+		//Panels' information
 		dashboard.setLayout(null);
 		inputData.setLayout(null);
 		visuals.setLayout(null);
 		dashboard.setBackground(new Color(145, 158, 154));
+		inputData.setBackground(new Color(145, 158, 154));
+		visuals.setBackground(new Color(145, 158, 154));
 		
-		
-		
-		//Label for Dashboard
+		//================================================== Dashboard Visuals ===================================================================
+		//Labels for Dashboard
 		JLabel welcome = new JLabel("Welcome", SwingConstants.CENTER);
 		JLabel welcome2 = new JLabel("to Gazebo Incorporate Log Anyalysis and Visualiztion!", SwingConstants.CENTER);
-		welcome.setFont(new Font("Serif", Font.BOLD, 36));
-		welcome2.setFont(new Font("Serif", Font.PLAIN, 16));
+		JLabel dashboardInfo = new JLabel("");
+		String ourProject = "Security is integral to business success, no matter how large or small your business may be.  Here at Gazebo, Inc., it remains our number one priority to provide security for all.  Our Log Analysis and Visualization System Prototype showcases";
+		JLabel lineBreak = new JLabel("______________________________________________________________________________________________");
+		JLabel flowStart = new JLabel("<html>Please click on the <em>Preprocessing & Processing</em> tab at the top to begin!</html>");
+		
+		
+		welcome.setFont(new Font("Century Gothic", Font.BOLD, 36));
+		welcome2.setFont(new Font("Century Gothic", Font.PLAIN, 13));
+		dashboardInfo.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		dashboardInfo.setText("<html>"+ ourProject +"</html>");
+		flowStart.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		
 		welcome.setBounds(574, 10, 422, 36);
 		welcome2.setBounds(574,50,422,18);
+		dashboardInfo.setBounds(590,100,380,200);
+		lineBreak.setBounds(578,60,422,15);
+		flowStart.setBounds(590,450,380,40);
 		dashboard.add(welcome);
 		dashboard.add(welcome2);
-		
-		
+		dashboard.add(dashboardInfo);
+		dashboard.add(lineBreak);
+		dashboard.add(flowStart);
 		
 		//============================================================ Data Panel Visuals ===========================================================================
 		//Label for Data Step 1
