@@ -148,7 +148,7 @@ public class MainPannel {
 		visuals.add(userNotice);
 				
 		//Combo Box for the options
-		String graphOption[] = {"Anomaly Pie Chart", "Busiest Times Bar Graph"};
+		String graphOption[] = {"Anomaly Pie Chart", "Busiest Times Line Grapgh"};
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		JComboBox graphCB = new JComboBox(graphOption);
 		graphCB.setBounds(100,250,150,20);
@@ -187,6 +187,8 @@ public class MainPannel {
 					}
 				}
 			});
+		
+		//=================================================== JFrame Finishing Touches ===========================================================
 				
 		//TabbedPane is created and panels are added.
 		JTabbedPane tabbedPane = new JTabbedPane();
@@ -198,7 +200,7 @@ public class MainPannel {
 		tabbedPane.add("Visuals",visuals);
 		
 
-		
+		// Background images for the panels
 		Image gazeboImage= Toolkit.getDefaultToolkit().getImage("./GAZEBO.jpg");
 		ImageIcon gazeboIcon = new ImageIcon(gazeboImage);
 		JLabel gazeboLabel = new JLabel();
@@ -214,6 +216,15 @@ public class MainPannel {
 		titleLabel.setBounds(0,358,578,200); //
 		titleLabel.setBorder(null);
 		dashboard.add(titleLabel);
+		
+		Image visualImage = Toolkit.getDefaultToolkit().getImage("./gazeboTITLE.png");
+		ImageIcon visualIcon = new ImageIcon(visualImage);
+		JLabel visualImageLabel = new JLabel();
+		visualImageLabel.setIcon(visualIcon);
+		visualImageLabel.setBounds(0,0,1000,600);
+		visualImageLabel.setBorder(null);
+		visuals.add(visualImageLabel);
+		
 		
 		
 		

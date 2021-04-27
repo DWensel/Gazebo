@@ -122,8 +122,12 @@ anomalyScore.to_csv('anomalies_cblof.csv', index = False, header=False)
 
 #Gets the number of anomalies detected and exports that as a CSV to be used for graphing.
 finalAnomCounts = pd.DataFrame()
-finalAnomCounts = anomalyScore[0].value_counts()
-finalAnomCounts.to_csv('finalAnomCounts.csv', index = True, header= False)
+
+#Switches the columns order to facilitate graphing later: Limitation with JFreeCharts. Has no bearing on code other than making it look better.
+finalAnomCounts = pd.DataFrame(anomalyScore[0].value_counts())
+finalAnomCounts.insert(loc=1, column="New Column", value=[0, 1])
+
+finalAnomCounts.to_csv('finalAnomCounts.csv', index = False, header= False)
 #===========================================================================================================================
 #Description: Finds indices of the anomalies in the original data file for user convenience. 
 
