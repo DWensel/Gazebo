@@ -1,8 +1,8 @@
 #Log Analysis and Virtualization System
 #Damien, Drake, and Becca
 #Software Engineering Spring 2021
-#4/13/2021
-#Sprint 2
+#4/26/2021
+#Sprint 3
 
 #===========================================================================================================================
 #include dependencies for PyOD
@@ -47,20 +47,14 @@ pcaLog = PCA(0.90)
 #fit the model to data and reduce dimensionality (transform the data)
 updatedData = pcaLog.fit_transform(normLogData) 
 
-
-#computes the number of principle components
-#print(pcaLog.n_components_)
-#numPrinComp = pcaLog.n_components_.to_string()
-
 #hide main TK window
 msg_wind = tk.Tk()
 msg_wind.withdraw() 
 
-#show user their number of principle components
+#computes the number of principle components and shows user their number of principle components
 messagebox.showinfo("Number of Principle Components to account for 90% of variability", pcaLog.n_components_)
 
 #computes the percentage of variance accounted for per each principle component
-#print(pcaLog.explained_variance_ratio_)
 varPerComp = pd.DataFrame(pcaLog.explained_variance_ratio_)
 varPerComp = varPerComp.to_string()
 
@@ -75,6 +69,8 @@ messagebox.showinfo("Variance explained by each principle component", varPerComp
 #Description: Applies Cluster Based Local Outlier Factor, a popular anomaly detection algorithm.  We do this through utilizing
 #the PyOD API/library.  Can be expanded upon in future use, by simply calling the methods for the other unsupervised anomaly 
 #detection algorithms and following the format we have below.
+#PyOD citation:
+##Zhao, Y., Nasrullah, Z. and Li, Z., 2019. PyOD: A Python Toolbox for Scalable Outlier Detection. Journal of machine learning research (JMLR), 20(96), pp.1-7.
 
 #===========================================================================================================================
 
@@ -126,6 +122,9 @@ finalAnomCounts = pd.DataFrame()
 #Switches the columns order to facilitate graphing later: Limitation with JFreeCharts. Has no bearing on code other than making it look better.
 finalAnomCounts = pd.DataFrame(anomalyScore[0].value_counts())
 finalAnomCounts.insert(loc=1, column="New Column", value=[0, 1])
+finalAnomCounts = finalAnomCounts.reindex([1,0])
+columns_titles = ["New Column", 0]
+finalAnomCounts = finalAnomCounts.reindex(columns=columns_titles)
 
 finalAnomCounts.to_csv('finalAnomCounts.csv', index = False, header= False)
 #===========================================================================================================================

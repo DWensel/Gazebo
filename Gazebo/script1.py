@@ -1,8 +1,8 @@
 #Log Analysis and Virtualization System
 #Damien, Drake, and Becca
 #Software Engineering Spring 2021
-#4/13/2021
-#Sprint 2
+#4/26/2021
+#Sprint 3
 
 #===========================================================================================================================
 
@@ -82,15 +82,10 @@ def busiestTimes():
     return bTimes
 #===========================================================================================================================
 bTimes = busiestTimes()
+
+#exports a csv to be used to generate visuals later
 bTimes.to_csv('busiestTimes.csv', index = True, header = False)
-bTimesStr = bTimes.to_string()
 
-#hide main TK window
-#alert_window = tk.Tk()
-#alert_window.withdraw() 
-
-#show user their busiest times
-#messagebox.showinfo("Busiest Times on the Network", bTimesStr)
 #===========================================================================================================================
 #Description: Finds null data and stores it.  Removes nulls from dataframe used in processing
 #===========================================================================================================================
@@ -129,8 +124,6 @@ nullValues = logData.isnull()
 
 #Stores the locations of these null values
 listOfNulls = findNulls(nullValues, True)
-#for i in range(len(listOfNulls)):
-    #print('Position ', i, ' (Row index , Column Name) : ', listOfNulls[i])
 
 #Exports a CSV of the locations of Null Values, as long as some were found.
 nullsDF = DataFrame(listOfNulls)
@@ -164,9 +157,6 @@ for x in sample:
 
 #Get timeframe from user: prompt it to be in the ISO format 
 #Assuming in our timezone, as that is where our company is located
-#userETF = input("Enter the earliest date in the form yyyy-mm-ddThh:mm:ssZ: ")
-#userRTF = input("Enter the most recent date in the form yyyy-mm-ddThh:mm:ssZ: ")
-
 #https://stackoverflow.com/questions/15495559/taking-input-from-the-user-in-tkinter
 #https://datatofish.com/entry-box-tkinter/
 
@@ -176,8 +166,6 @@ def getInfo():
     global userRTF
     userETF = firstInput.get() 
     userRTF = secondInput.get()
-    #print(userETF)
-    #print(userRTF)
 
 def onExit():
     enter_time.quit()
@@ -257,8 +245,7 @@ if timeCol != None:
     
     #match the timestamp pattern to user input
     if re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z",userETF) and re.match("[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z",userRTF):
-        #print("You have selected a timeframe of: " + userETF + " to " + userRTF)
-        
+        #if entered correctly
         if not(userETF > userRTF): 
             msg_window = tk.Tk()
             msg_window.withdraw() 
