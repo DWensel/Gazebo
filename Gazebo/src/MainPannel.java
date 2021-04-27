@@ -42,7 +42,7 @@ public class MainPannel {
 		JLabel welcome2 = new JLabel("to Gazebo Incorporate Log Anyalysis and Visualiztion!", SwingConstants.CENTER);
 		JLabel dashboardInfo = new JLabel("");
 		String ourProject = "Security is integral to business success, no matter how large or small your business may be.  Here at Gazebo, Inc., it remains our number one priority to provide security for all.  Our Log Analysis and Visualization System Prototype showcases";
-		JLabel lineBreak = new JLabel("______________________________________________________________________________________________");
+		JLabel lineBreak = new JLabel("_______________________________________________________________________________________________________");
 		JLabel flowStart = new JLabel("<html>Please click on the <em>Preprocessing & Processing</em> tab at the top to begin!</html>");
 		
 		
@@ -109,7 +109,7 @@ public class MainPannel {
 		
 		//Button for Processing, and actionListener to perform a ProcessBuilder and Process of our python script2
 		JButton confirmPreprocessing = new JButton("Process That File!");
-		confirmPreprocessing.setBounds(150, 335, 135, 20);
+		confirmPreprocessing.setBounds(150, 335, 148, 20);
 		confirmPreprocessing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
