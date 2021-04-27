@@ -137,26 +137,36 @@ public class MainPannel {
 		
 		
 		//========================================================= Visuals Panel Visuals ===========================================================================
-		//Label for graphics
+		//Label for Visual Title
 		JLabel visualTitle = new JLabel("Welcome to the Final Step!\n", SwingConstants.CENTER);
-		visualTitle.setBounds(0, 10, 1000, 25);
+		visualTitle.setFont(new Font("Century Gothic", Font.BOLD, 36));
+		visualTitle.setForeground(Color.WHITE);
+		visualTitle.setBounds(0, 40, 1000, 40);
 		visuals.add(visualTitle);
-				
+		
+		//Label for Visual Direction
+		JLabel visualDirection = new JLabel("<html>Please Select A Graph From The Dropdown Menu and Click <em>SHOW</em>!</html>");
+		visualDirection.setFont(new Font("Century Gothic", Font.BOLD, 16));
+		visualDirection.setForeground(Color.WHITE);
+		visualDirection.setBounds(100, 210, 250, 60);
+		visuals.add(visualDirection);
+		
+		
 		//Label for userNotice
 		JLabel userNotice = new JLabel("");
-		userNotice.setBounds(380,250, 500,20);
+		userNotice.setBounds(380,285, 500,20);
 		visuals.add(userNotice);
 				
 		//Combo Box for the options
 		String graphOption[] = {"Anomaly Pie Chart", "Busiest Times Line Grapgh"};
 		@SuppressWarnings({ "rawtypes", "unchecked" })
 		JComboBox graphCB = new JComboBox(graphOption);
-		graphCB.setBounds(100,250,150,20);
+		graphCB.setBounds(100,285,150,20);
 		visuals.add(graphCB);
 				
 		//Button to show graph option selected
 		JButton showButton = new JButton("Show!");
-		showButton.setBounds(275,250,70,20);
+		showButton.setBounds(275,285,70,20);
 		visuals.add(showButton);
 				
 		//Action Listener for the button
@@ -217,7 +227,7 @@ public class MainPannel {
 		titleLabel.setBorder(null);
 		dashboard.add(titleLabel);
 		
-		Image visualImage = Toolkit.getDefaultToolkit().getImage("./gazeboTITLE.png");
+		Image visualImage = Toolkit.getDefaultToolkit().getImage("./visualImage.jpg");
 		ImageIcon visualIcon = new ImageIcon(visualImage);
 		JLabel visualImageLabel = new JLabel();
 		visualImageLabel.setIcon(visualIcon);
