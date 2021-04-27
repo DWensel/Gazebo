@@ -48,9 +48,9 @@ public class MainPannel {
 		
 		welcome.setFont(new Font("Century Gothic", Font.BOLD, 36));
 		welcome2.setFont(new Font("Century Gothic", Font.PLAIN, 13));
-		dashboardInfo.setFont(new Font("Century Gothic", Font.PLAIN, 16));
+		dashboardInfo.setFont(new Font("Century Gothic", Font.BOLD, 16));
 		dashboardInfo.setText("<html>"+ ourProject +"</html>");
-		flowStart.setFont(new Font("Century Gothic", Font.PLAIN, 15));
+		flowStart.setFont(new Font("Century Gothic", Font.BOLD, 15));
 		
 		welcome.setBounds(574, 10, 422, 36);
 		welcome2.setBounds(574,50,422,18);
@@ -66,17 +66,18 @@ public class MainPannel {
 		//============================================================ Data Panel Visuals ===========================================================================
 		//Label for Data Step 1
 		JLabel dataStep1 = new JLabel("Step 1:  First we need to select the log file we will be analyzing!");
-		dataStep1.setBounds(150,25,1000,25);
+		dataStep1.setFont(new Font("Century Gothic", Font.BOLD, 15));
+		dataStep1.setBounds(150,45,1000,25);
 		inputData.add(dataStep1);
 		
 		//User Notice Label for Step 1
 		JLabel preNotice = new JLabel("");
-		preNotice.setBounds(300, 55, 500, 200);
+		preNotice.setBounds(300, 85, 500, 200);
 		inputData.add(preNotice);
 		
 		//Button for Preprocessing, and actionListener to perform a ProcessBuilder and Process of our python script1
 		JButton selectDataButton = new JButton("Select File");
-		selectDataButton.setBounds(150, 50, 105, 20);
+		selectDataButton.setBounds(150, 80, 105, 20);
 		selectDataButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -97,6 +98,7 @@ public class MainPannel {
 		
 		//Label for Data Step 2
 		JLabel dataStep2 = new JLabel("Step 2: Now we need to Process the file, Just click the button to continue!");
+		dataStep2.setFont(new Font("Century Gothic", Font.BOLD, 15));
 		dataStep2.setBounds(150, 300, 1000, 25);
 		inputData.add(dataStep2);
 		
@@ -107,7 +109,7 @@ public class MainPannel {
 		
 		//Button for Processing, and actionListener to perform a ProcessBuilder and Process of our python script2
 		JButton confirmPreprocessing = new JButton("Process That File!");
-		confirmPreprocessing.setBounds(150, 325, 135, 20);
+		confirmPreprocessing.setBounds(150, 335, 135, 20);
 		confirmPreprocessing.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
