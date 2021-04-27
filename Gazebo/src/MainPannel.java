@@ -1,4 +1,5 @@
 //Required Imports
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -30,13 +31,13 @@ public class MainPannel {
 		dashboard.setLayout(null);
 		inputData.setLayout(null);
 		visuals.setLayout(null);
-		
+		dashboard.setBackground(new Color(145, 158, 154));
 		
 		
 		
 		//Label for Dashboard
-		JLabel welcome = new JLabel("Welcome, to Gazebo Incorporate Log Anyalysis and Visualiztion!");
-		welcome.setBounds(350, 10, 900, 25);
+		JLabel welcome = new JLabel("<html>WELCOME<br>to Gazebo Incorporate Log Anyalysis and Visualiztion!</html>", SwingConstants.CENTER);
+		welcome.setBounds(578, 10, 422, 100);
 		dashboard.add(welcome);
 		
 		//============================================================ Data Panel Visuals ===========================================================================
@@ -173,13 +174,25 @@ public class MainPannel {
 		//add a processing tab
 		tabbedPane.add("Visuals",visuals);
 		
-		Image image= Toolkit.getDefaultToolkit().getImage("./gazeboPic.png");
+
+		
+		Image image= Toolkit.getDefaultToolkit().getImage("./GAZEBO.jpg");
 		ImageIcon icon = new ImageIcon(image);
 		JLabel thumb = new JLabel();
 		thumb.setIcon(icon);
-		thumb.setBounds(10,10,400,400);
+		thumb.setBounds(0,-14,578,372); //
 		thumb.setBorder(null);
 		dashboard.add(thumb);
+		
+		Image image2= Toolkit.getDefaultToolkit().getImage("./gazeboTITLE.png");
+		ImageIcon icon2 = new ImageIcon(image2);
+		JLabel thumb2 = new JLabel();
+		thumb2.setIcon(icon2);
+		thumb2.setBounds(0,358,578,200); //
+		thumb2.setBorder(null);
+		dashboard.add(thumb2);
+		
+		
 		
 		//Add the TabbedPane to the main frame, don't allow for resizing, make it visible
 		frame.add(tabbedPane);
