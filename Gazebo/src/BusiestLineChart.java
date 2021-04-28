@@ -30,7 +30,7 @@ public class BusiestLineChart extends ApplicationFrame {
    private DefaultCategoryDataset createDataset() throws FileNotFoundException {
       DefaultCategoryDataset dataset = new DefaultCategoryDataset();
       
-      Scanner sc = new Scanner(new File("finalDateCounts.csv"));
+      Scanner sc = new Scanner(new File("busiestTimes.csv"));
       
       while (sc.hasNext()) {
     	  String line = sc.nextLine();
