@@ -170,6 +170,8 @@ newAnomalyDatesFrame.columns = [0]
 finalDateCounts = pd.DataFrame()
 finalDateCounts = newAnomalyDatesFrame[0].value_counts()
 
+#finalDateCounts.sort_values(by=0)
+
 finalDateCounts.to_csv('finalDateCounts.csv', index = True, header= False)
 
 

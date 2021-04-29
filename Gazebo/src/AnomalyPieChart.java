@@ -33,8 +33,8 @@ public class AnomalyPieChart extends ApplicationFrame {
 			//Make a list of values so that we can split our line by commas and store each split
 			String values[] = line.split(",");
 			//Now we can place the correct split into the correct variables
-			String category = values[0];
-			String numString = values[1];
+			String category = values[0]; 	//Store the first split as the category
+			String numString = values[1];	//Store the second split as the number
 			int numInt = Integer.parseInt(numString);//numString, which is the number of anomalies, needs to be an integer.
 			//Add our new variables to the DefaultPieDataset we created
 			dataset.setValue(category, numInt); 
@@ -65,7 +65,7 @@ public class AnomalyPieChart extends ApplicationFrame {
 		AnomalyPieChart visual = new AnomalyPieChart("Anomalies");
 		//visual.dispatchEvent(new WindowEvent(visual, WindowEvent.WINDOW_CLOSED));
 		visual.setDefaultCloseOperation(AnomalyPieChart.DISPOSE_ON_CLOSE);
-		visual.setSize(560, 367);    
+		visual.pack();    
 		RefineryUtilities.centerFrameOnScreen(visual);    
 		visual.setVisible(true); 
 	}
